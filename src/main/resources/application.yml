@@ -1,0 +1,40 @@
+spring:
+  data:
+      redis:
+        cluster:
+          nodes:
+            - 127.0.0.1:7001
+            - 127.0.0.1:7002
+            - 127.0.0.1:7003
+            - 127.0.0.1:7004
+            - 127.0.0.1:7005
+            - 127.0.0.1:7006
+        lettuce:  
+          pool:  
+            max-active: 10 # 连接池最大活跃连接数  
+            max-idle: 5 # 连接池最大空闲连接数  
+            min-idle: 2 # 连接池最小空闲连接数  
+            max-wait: 1000ms # 连接池最大阻塞等待时间（获取连接时）  
+        timeout: 5000ms # Redis命令的超时时间
+  # DataSource Config
+  # https://docs.spring.io/spring-boot/reference/data/sql.html#data.sql
+  datasource:
+    # without url, Spring Boot tries to auto-configure an embedded database. 
+    driver-class-name: org.h2.Driver
+    username: root
+    password: test
+  
+  # modulith:
+  #   detection-strategy: explicitly-annotated
+  # https://docs.spring.io/spring-boot/how-to/data-initialization.html#howto.data-initialization.using-basic-sql-scripts
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath*:db/schema-h2.sql
+      data-locations: classpath*:db/data-h2.sql
+  h2:
+    console:
+      enabled: true
+logging:
+  level: 
+    root: info

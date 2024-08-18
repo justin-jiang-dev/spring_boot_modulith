@@ -1,0 +1,113 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "java",
+				"name": "Attach",
+				"request": "attach",
+				"hostName": "localhost",
+				"port": "5005"
+			}
+		],
+		"compounds": []
+	},
+	"settings": {
+		// 配置 p3c 的配置文件名称
+		"vscodeP3C.rulesets": [
+			"custom-p3c-ruleset.xml"
+		],
+		// 配置 p3c 的缓存
+		"vscodeP3C.enableCache": true,
+		// 配置代码格式，包括缩进，空格等
+		"java.format.settings.url": "eclipse-formatter-V13.xml",
+		// 拼写单词白名单
+		"cSpell.words": [
+			"aliyun",
+			"aliyunmaven",
+			"Batis",
+			"businessdemo",
+			"Cacheable",
+			"classpath",
+			"Dartifact",
+			"Dfile",
+			"Dgenerate",
+			"Dgroup",
+			"Dpackaging",
+			"Drepository",
+			"Dspring",
+			"Dtest",
+			"Durl",
+			"Dversion",
+			"endregion",
+			"extendmapper",
+			"extendservice",
+			"foundationmodel",
+			"Freemarker",
+			"ibatis",
+			"inventoryentity",
+			"inventorygateway",
+			"inventorymodel",
+			"inventoryrequestparam",
+			"javax",
+			"jdbc",
+			"modulith",
+			"Modulithic",
+			"mvnw",
+			"Mybatis",
+			"nuoson",
+			"Ollama",
+			"orderentity",
+			"ordergateway",
+			"ordermodel",
+			"rectcircle",
+			"requestparam",
+			"ruleset",
+			"rulesets",
+			"springframework",
+			"testdb",
+			"Tiku",
+			"vscjava",
+			"Xdebug",
+			"Xrunjdwp",
+			"XXXDTO"
+		],
+		"java.configuration.updateBuildConfiguration": "automatic",
+		// 静态的空指针检测
+		"java.compile.nullAnalysis.mode": "automatic",
+		// import 语句排序规则
+		"java.completion.importOrder": [
+			"#",
+			"java",
+			"javax",
+			"org",
+			"com",
+			""
+		],
+		"java.project.sourcePaths": [
+			"src"
+		],
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "always"
+		},
+		"files.autoSave": "onFocusChange",
+		"java.server.launchMode": "Hybrid",
+		"java.import.exclusions": [
+			"**/target/**",
+			"**/node_modules/**",
+			"**/.metadata/**",
+			"**/archetype-resources/**",
+			"**/META-INF/maven/**"
+		],
+		"java.project.resourceFilters": [
+			"node_modules",
+			"target"
+		]
+	}
+}
