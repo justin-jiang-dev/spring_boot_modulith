@@ -1,4 +1,8 @@
+server:
+  port: 8080
 spring:
+  application:
+    name: spring_boot_modulith
   data:
       redis:
         cluster:

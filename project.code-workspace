@@ -40,6 +40,7 @@
 			"Dgroup",
 			"Dpackaging",
 			"Drepository",
+			"Dskywalking",
 			"Dspring",
 			"Dtest",
 			"Durl",
@@ -54,6 +55,7 @@
 			"inventorygateway",
 			"inventorymodel",
 			"inventoryrequestparam",
+			"javaagent",
 			"javax",
 			"jdbc",
 			"modulith",
@@ -69,6 +71,8 @@
 			"requestparam",
 			"ruleset",
 			"rulesets",
+			"Servlet",
+			"skywalking",
 			"springframework",
 			"testdb",
 			"Tiku",
@@ -92,12 +96,13 @@
 		"java.project.sourcePaths": [
 			"src"
 		],
+		// 代码自动格式化配置 -- start
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.organizeImports": "always"
 		},
 		"files.autoSave": "onFocusChange",
-		"java.server.launchMode": "Hybrid",
+		// 代码自动格式化配置 -- end
 		"java.import.exclusions": [
 			"**/target/**",
 			"**/node_modules/**",
@@ -107,7 +112,14 @@
 		],
 		"java.project.resourceFilters": [
 			"node_modules",
+			".git",
 			"target"
-		]
+		],
+		"[java]": {
+			"editor.insertSpaces": true,
+			"editor.detectIndentation": false,
+			"editor.tabSize": 4,
+			"editor.defaultFormatter": "redhat.java"
+		}
 	}
 }
