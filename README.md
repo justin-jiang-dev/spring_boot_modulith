@@ -3,6 +3,16 @@
 **最终目标**：通过基于脚手架编程的方式，提高团队的开发效率（质量+速度）  
 **实现方式**：本脚手架引入 [COLA](https://github.com/alibaba/COLA) 层次结构来组织代码，同时引入 [Spring Modulith](https://spring.io/projects/spring-modulith/) 来管理模块间的引用。  
 
+# 工程初始化
+```bash
+# 运行如下命令，clone 代码并初始化工程依赖
+# 1. clone代码，也可以直接下载zip包到本地
+git clone git@gitee.com:justinjiangcode/spring_boot_modulith.git
+cd spring_boot_modulith
+# 2. 安装『规范检测插件』依赖
+./mvnw install:install-file -Dfile=./libs/p3c-pmd-plus-0.0.1-SNAPSHOT.jar -DgroupId=com.nuoson -DartifactId=p3c-pmd-plus -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar
+```
+
 # 代码组织架构
  [COLA 4.0](https://github.com/alibaba/COLA) + [Spring Modulith](https://spring.io/projects/spring-modulith/)  
 * 模块设计和依赖关系，借鉴 COLA 4.0 的层次结构，并结合 Spring Boot 的全局配置需求，引入 **Start** 层  
@@ -71,7 +81,7 @@
 ```
 
 # 代码规范
-遵循 [阿里巴巴Java开发手册](./docs/Java开发手册(黄山版).pdf)。 部分规则微调，参见 p3c.ruleset.xml 配置文件
+遵循 [阿里巴巴Java开发手册](./docs/Java开发手册(黄山版).pdf)。 部分规则微调，参见 [custom-p3c-ruleset.xml](./custom-p3c-ruleset.xml) 配置文件
 
 
 # 代码结构（即模块依赖关系）验证
