@@ -116,6 +116,16 @@ cd spring_boot_modulith
 # 部署 Client SDK（生成 jar 包，并上传至指定仓库），注： CLIENT_SDK_VERSION 为版本号
 CLIENT_SDK_VERSION=1.0.0;./mvnw deploy:deploy-file -DgroupId=com.nuoson.modulith -DartifactId=modulith-client -Dpackaging=jar -DrepositoryId=<依赖库Id> -Durl=<依赖库Url> -DgeneratePom=false -Dversion=${CLIENT_SDK_VERSION}-SNAPSHOT -Dfile=target/client/modulith-${CLIENT_SDK_VERSION}-client.jar
 ```
+# 生成&使用脚手架模板
+```bash
+# 生成并本地安装 archetype
+./mvnw archetype:create-from-project -Darchetype.properties=./archetype.properties
+cd target/generated-sources/archetype 
+../../../mvnw install
+# 使用 archetype
+mvn archetype:generate -DarchetypeGroupId=tech.nuoson -DarchetypeArtifactId=archetype_demo -DgroupId=com.nuoson.app -DartifactId=new-app -DinteractiveMode=false
+
+```
 # 启动时指定 skywalking Agent
 ```bash
 java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 -javaagent:<skywalking-agent.jar 地址> -Dskywalking.collector.backend_service=127.0.0.1:11800 -jar target/modulith-1.0.0.jar --spring.profiles.active=dev --server.port=8686
