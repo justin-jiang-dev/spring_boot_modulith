@@ -16,5 +16,5 @@ public interface OrderRedisGateway {
      * 
      * @param orderEntity -- 订单实例
      */
-    void create(OrderEntity orderEntity);
+    void save(OrderEntity orderEntity);
 }

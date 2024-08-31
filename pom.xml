@@ -180,11 +180,11 @@
 
         <!-- 支持多个数据源 -->
         <!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
-        <!-- <dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
             <version>${dynamic-datasource.version}</version>
-        </dependency> -->
+        </dependency>
 
         <!-- JDBC Type 4 driver for MySQL -->
         <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
@@ -195,11 +195,11 @@
         </dependency> -->
 
         <!-- 本地缓存（内存 + 硬盘） -->
-        <!-- <dependency>
+        <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
             <version>${caffeine.version}</version>
-        </dependency> -->
+        </dependency>
         <!-- H2 数据库 -->
         <dependency>
             <groupId>com.h2database</groupId>
@@ -352,6 +352,7 @@
                     <include>**/*.yml</include>
                     <include>**/logback-spring.xml</include>
                     <include>db/*.sql</include>
+                    <include>additional-spring-configuration-metadata.json</include>
                 </includes>
                 <!-- 启用过滤器，过滤器会解析需要过滤的的资源文件，将其中的变量替换成真实的值 -->
                 <filtering>true</filtering>

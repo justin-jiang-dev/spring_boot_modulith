@@ -161,7 +161,11 @@ class MyBatisPlusGenerator {
                 .serviceBuilder()
                 // Service 会被覆盖，不能手动编辑
                 .enableFileOverride()
-                .formatServiceFileName("%sService")
+                .formatServiceFileName("%sDatabaseService")
+                .build()
+                .serviceBuilder()
+                .enableFileOverride()
+                .formatServiceImplFileName("%sDatabaseServiceImpl")
                 .build()
                 .controllerBuilder().disable()
                 .entityBuilder().javaTemplate("./templates/entity_auto.java")

@@ -18,3 +18,6 @@ code --install-extension rectcircle.vscode-p3c
   </mirrors>
 
 ```
+# 开发环境配置之 H2 Database
+## 如何查看 H2 数据库里的数据
+使用 URL（http://localhost:8686/h2-console/） 启动 H2 console  

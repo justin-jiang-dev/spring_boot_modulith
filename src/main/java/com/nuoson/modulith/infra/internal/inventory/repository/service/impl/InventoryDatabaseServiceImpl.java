@@ -2,7 +2,7 @@ package com.nuoson.modulith.infra.internal.inventory.repository.service.impl;
 
 import com.nuoson.modulith.infra.internal.inventory.repository.model.InventoryDO;
 import com.nuoson.modulith.infra.internal.inventory.repository.mapper.InventoryMapper;
-import com.nuoson.modulith.infra.internal.inventory.repository.service.InventoryService;
+import com.nuoson.modulith.infra.internal.inventory.repository.service.InventoryDatabaseService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author nuoson auto
- * @since 2024-07-05 22:52:28
+ * @since 2024-08-31 14:18:25
  */
 @Service
-public class InventoryServiceImpl extends ServiceImpl<InventoryMapper, InventoryDO> implements InventoryService {
+public class InventoryDatabaseServiceImpl extends ServiceImpl<InventoryMapper, InventoryDO> implements InventoryDatabaseService {
 
 }

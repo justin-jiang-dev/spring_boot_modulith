@@ -82,7 +82,8 @@
 			"vscjava",
 			"Xdebug",
 			"Xrunjdwp",
-			"XXXDTO"
+			"XXXDTO",
+			"YYYZZZ"
 		],
 		"java.configuration.updateBuildConfiguration": "automatic",
 		// 静态的空指针检测

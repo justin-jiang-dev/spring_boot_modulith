@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author nuoson auto
- * @since 2024-07-05 22:52:28
+ * @since 2024-08-31 14:18:25
  */
 @Mapper
 public interface InventoryMapper extends BaseMapper<InventoryDO> {

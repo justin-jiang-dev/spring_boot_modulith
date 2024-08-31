@@ -2,7 +2,7 @@ package com.nuoson.modulith.infra.internal.order.repository.service.impl;
 
 import com.nuoson.modulith.infra.internal.order.repository.model.ProductOrderDO;
 import com.nuoson.modulith.infra.internal.order.repository.mapper.ProductOrderMapper;
-import com.nuoson.modulith.infra.internal.order.repository.service.ProductOrderService;
+import com.nuoson.modulith.infra.internal.order.repository.service.ProductOrderDatabaseService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author nuoson auto
- * @since 2024-07-05 22:52:28
+ * @since 2024-08-31 14:24:39
  */
 @Service
-public class ProductOrderServiceImpl extends ServiceImpl<ProductOrderMapper, ProductOrderDO> implements ProductOrderService {
+public class ProductOrderDatabaseServiceImpl extends ServiceImpl<ProductOrderMapper, ProductOrderDO> implements ProductOrderDatabaseService {
 
 }

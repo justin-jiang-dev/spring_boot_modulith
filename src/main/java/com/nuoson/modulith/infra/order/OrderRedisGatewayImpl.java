@@ -23,7 +23,7 @@ public class OrderRedisGatewayImpl implements OrderRedisGateway {
     }
 
     @Override
-    public void create(OrderEntity orderEntity) {
+    public void save(OrderEntity orderEntity) {
         stringRedisTemplate.opsForValue().set(orderEntity.getOrderId(), JsonUtils.to(orderEntity));
     }
 }

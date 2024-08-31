@@ -1,8 +1,13 @@
+logging:
+  level: 
+    root: info
 server:
-  port: 8080
+  port: 8686
 spring:
   application:
     name: spring_boot_modulith
+  cache:
+    type: CAFFEINE
   data:
       redis:
         cluster:
@@ -23,22 +28,34 @@ spring:
   # DataSource Config
   # https://docs.spring.io/spring-boot/reference/data/sql.html#data.sql
   datasource:
-    # without url, Spring Boot tries to auto-configure an embedded database. 
-    driver-class-name: org.h2.Driver
-    username: root
-    password: test
+    dynamic:
+      primary: primaryH2
+      strict: false
+      datasource:
+        primaryH2:
+          url: jdbc:h2:mem:primary;DB_CLOSE_DELAY=-1
+          username: root
+          password: test
+          init:
+            schema: classpath*:db/schema-primary-h2.sql
+            data: classpath*:db/data-primary-h2.sql
+        secondaryH2:
+          url: jdbc:h2:mem:secondary;DB_CLOSE_DELAY=-1
+          username: root
+          password: test
+          init:
+            schema: classpath*:db/schema-secondary-h2.sql
+            data: classpath*:db/data-secondary-h2.sql
+    
   
   # modulith:
   #   detection-strategy: explicitly-annotated
   # https://docs.spring.io/spring-boot/how-to/data-initialization.html#howto.data-initialization.using-basic-sql-scripts
-  sql:
-    init:
-      mode: always
-      schema-locations: classpath*:db/schema-h2.sql
-      data-locations: classpath*:db/data-h2.sql
+  # sql:
+  #   init:
+  #     mode: always
+  #     schema-locations: classpath*:db/schema-h2.sql
+  #     data-locations: classpath*:db/data-h2.sql
   h2:
     console:
       enabled: true
-logging:
-  level: 
-    root: info

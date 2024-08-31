@@ -57,6 +57,30 @@ public interface ApiErrorCode {
     }
 
     /**
+     * ORDER 模块错误码
+     */
+    @CodePrefix("ORD")
+    enum OrderErrorCodeEnum implements MsgCode {
+
+        /** */
+        @C(value = "001", msg = "未知错误")
+        UNKNOWN,
+        /** */
+        @C(value = "002", msg = "产品不存在")
+        PRODUCT_MISSING,
+        /** */
+        @C(value = "003", msg = "产品数量不足")
+        PRODUCT_COUNT_NOT_ENOUGH,
+        /** */
+        @C(value = "004", msg = "数据库更新(CAS)失败")
+        DB_CAS_UPDATE_FAILED,
+        /** */
+        @C(value = "005", msg = "数据库更新失败")
+        DB_UPDATE_FAILED,
+
+    }
+
+    /**
      * 返回上述所有的错误码，用于 Swagger 生成错误码文档
      * 
      * @return
