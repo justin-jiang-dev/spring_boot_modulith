@@ -13,7 +13,7 @@ import lombok.Setter;
  * </p>
  * ### 自动生成代码，请勿修改 ###
  * @author nuoson auto
- * @since 2024-08-31 14:24:39
+ * @since 2024-09-04 22:56:46
  */
 @Getter
 @Setter
@@ -38,12 +38,6 @@ public class ProductOrderDO {
      */
     @TableField("PRODUCT_ID")
     private String productId;
-
-    /**
-     * 订单名称
-     */
-    @TableField("NAME")
-    private String name;
 
     /**
      * 下定的库存产品数量

@@ -1,6 +1,6 @@
 package com.nuoson.modulith.infra.order;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +14,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class OrderRedisGatewayImpl implements OrderRedisGateway {
 
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+    private final StringRedisTemplate stringRedisTemplate;
 
     @Override
     public OrderEntity getById(String orderId) {
-        return null;
+        String entityJson = stringRedisTemplate.opsForValue().get(orderId);
+        if (StringUtils.isBlank(entityJson)) {
+            return null;
+        }
+        return JsonUtils.from(entityJson, OrderEntity.class);
     }
 
     @Override

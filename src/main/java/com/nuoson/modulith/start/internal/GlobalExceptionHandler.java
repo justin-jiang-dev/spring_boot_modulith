@@ -2,6 +2,7 @@ package com.nuoson.modulith.start.internal;
 
 import java.util.List;
 
+import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
@@ -16,7 +17,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 
 import com.nuoson.modulith.app.foundationmodel.BasicResultDTO;
-import com.nuoson.modulith.domain.foundationmodel.ApiErrorCode.GeneralErrorCodeEnum;
 import com.nuoson.modulith.domain.foundationmodel.BusinessException;
 import com.nuoson.modulith.domain.foundationmodel.MsgCode;
 
@@ -40,26 +40,6 @@ public class GlobalExceptionHandler {
         return BasicResultDTO.fail(msgCode.getCode(), ex.getMessage());
     }
 
-    @ExceptionHandler(value = { ConstraintViolationException.class })
-    /**
-     * 处理约束违规异常的方法
-     *
-     * @param ex 约束违规异常对象
-     * @return 包含错误信息的BasicResultDTO对象
-     * @throws 无
-     *
-     * @ExceptionHandler 注解指定该方法用于处理 ConstraintViolationException 异常
-     * @ResponseStatus 注解指定当发生异常时，HTTP响应状态码为 INTERNAL_SERVER_ERROR
-     */
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public BasicResultDTO<Object> handleConstraintViolationException(ConstraintViolationException ex) {
-        log.warn("ConstraintViolationException with error: {} and ex: ",
-                buildConstraintViolationMessage((ConstraintViolationException) ex),
-                ex);
-        return BasicResultDTO.fail(GeneralErrorCodeEnum.CONSTRAINT_VIOLATION.getCode(),
-                GeneralErrorCodeEnum.CONSTRAINT_VIOLATION.getMsg());
-    }
-
     /**
      * 客户端传参类问题（返回 406） -- 参数格式不正确，例如 requestBody 不能为空 或 json 格式不正确等
      *
@@ -67,8 +47,8 @@ public class GlobalExceptionHandler {
      * @param request
      * @return
      */
-    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
     @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
     public Object handleHttpMessageNotReadableException(HttpMessageNotReadableException ex, WebRequest request) {
         log.warn("##MessageNotReadable Request={} with error: {}", request.getDescription(true), ex.getMessage());
         return BasicResultDTO.fail(String.valueOf(HttpStatus.NOT_ACCEPTABLE.value()), "Request params error");
@@ -81,13 +61,15 @@ public class GlobalExceptionHandler {
      * @param request
      * @return
      */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {
             BindException.class,
+            ConstraintViolationException.class,
             // 用于捕获 RequestBody 参数校验异常
             MethodArgumentNotValidException.class,
             HandlerMethodValidationException.class
     })
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Object handleValidationException(Exception ex, WebRequest request) {
         return buildApiResultWithBadRequest(ex);
     }
@@ -99,8 +81,8 @@ public class GlobalExceptionHandler {
      * @param request
      * @return
      */
-    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public Object methodNotAllowed(HttpRequestMethodNotSupportedException ex, WebRequest request) {
         log.warn("##methodNotAllowed Request={} with error: {}", request.getDescription(true), ex.getMessage());
         return BasicResultDTO.fail(String.valueOf(HttpStatus.METHOD_NOT_ALLOWED.value()),
@@ -114,12 +96,19 @@ public class GlobalExceptionHandler {
      * @param request
      * @return
      */
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = {
+            Exception.class,
+            RedisConnectionFailureException.class,
+    })
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
     public Object handleException(Exception ex, WebRequest request) {
 
         String msg = "未知错误";
-        log.warn("##Exception Request={} with error: ", request.getDescription(true), ex);
+        if (ex instanceof RedisConnectionFailureException) {
+            msg = "Redis连接失败";
+        }
+        log.error("##Exception Request={} with error: ", request.getDescription(true), ex);
+
         return BasicResultDTO.fail(String.valueOf(HttpStatus.SERVICE_UNAVAILABLE.value()), msg);
     }
     // #endregion

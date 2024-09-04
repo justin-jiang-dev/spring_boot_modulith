@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author nuoson auto
- * @since 2024-08-31 14:24:39
+ * @since 2024-09-04 22:56:46
  */
 @Mapper
 public interface ProductOrderMapper extends BaseMapper<ProductOrderDO> {

@@ -101,13 +101,16 @@ cd spring_boot_modulith
 
 ```
 
-# 代码调试
+# 代码启动和调试
 ```bash
 # 使用测试环境 Redis 集群
 ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" -Dspring-boot.run.arguments="--spring.profiles.active=dev"
 
 # 使用本地 Redis 集群（ ** 注意修改端口号，密码，确保和本地 redis 匹配 **）
 ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"  -Dspring-boot.run.arguments="--spring.profiles.active=dev --spring.data.redis.cluster.nodes=localhost:7000 --spring.data.redis.password=1q2w3e"
+
+# 启动时指定 skywalking Agent
+java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 -javaagent:<skywalking-agent.jar 地址> -Dskywalking.collector.backend_service=127.0.0.1:11800 -jar target/modulith-1.0.0.jar --spring.profiles.active=dev --server.port=8686
 ```
 # Client SDK 生成与部署
 ```bash
@@ -126,8 +129,6 @@ cd target/generated-sources/archetype
 mvn archetype:generate -DarchetypeGroupId=tech.nuoson -DarchetypeArtifactId=archetype_demo -DgroupId=com.nuoson.app -DartifactId=new-app -DinteractiveMode=false
 
 ```
-# 启动时指定 skywalking Agent
-```bash
-java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 -javaagent:<skywalking-agent.jar 地址> -Dskywalking.collector.backend_service=127.0.0.1:11800 -jar target/modulith-1.0.0.jar --spring.profiles.active=dev --server.port=8686
-```
-*** 开发环境配置参见文件 [README_ENV.md](./README_ENV.md) ***
+
+*** 开发环境配置参见文件 [README_ENV.md](./README_ENV.md) ***    
+*** 常见需求场景解决方案参见文件 [README_SOLUTION.md](./README_SOLUTION.md) ***

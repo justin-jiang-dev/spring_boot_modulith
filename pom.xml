@@ -24,24 +24,32 @@
         <!-- java 版本 -->
         <java.version>17</java.version>
         <!-- 
-            此 spring cloud 版本 对应 spring boot 3.2.X 及 3.3.X
+            spring cloud
+            此 spring cloud 版本（2023.0.2 发布于 May 30, 2024）
             https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-2023.0-Release-Notes
             https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies
+            对应 spring-cloud-dependencies-parent 4.1.2版本
+        https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2023.0.2/spring-cloud-dependencies-2023.0.2.pom
+            
+            对应 spring boot 3.2.X 及 3.3.X
+            https://spring.io/projects/spring-cloud
          -->
         <spring-cloud.version>2023.0.2</spring-cloud.version>
-        <!-- 2023.0.1.0 版本对应的 Spring Cloud 2023.0.0（可以比对 pom.xml 文件里的
-        spring-cloud-dependencies-parent 版本（4.1.0））
+        <!-- 
+            Spring Cloud Alibaba Dependencies
+            2023.0.1.2 版本（发布于 Jul 12, 2024）对应的 Spring Cloud 2023.0.0
+            可以比对 pom.xml 文件里的 spring-cloud-dependencies-parent 版本（4.1.0）
+        https://repo1.maven.org/maven2/com/alibaba/cloud/spring-cloud-alibaba-dependencies/2023.0.1.2/spring-cloud-alibaba-dependencies-2023.0.1.2.pom
             https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-dependencies 
          -->
-        <alibaba-spring-cloud.version>2023.0.1.0</alibaba-spring-cloud.version>
+        <alibaba-spring-cloud.version>2023.0.1.2</alibaba-spring-cloud.version>
         <spring-modulith.version>1.2.0</spring-modulith.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mysql-connector.version>8.2.0</mysql-connector.version>
         <dynamic-datasource.version>4.2.0</dynamic-datasource.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <!-- 版本和 spring-cloud-openfeign-dependencies(包含在spring-cloud-dependencies中) pom.xml 里的
-        feign.version 属性值
-        保持一致 -->
+        feign.version 属性值保持一致 -->
         <feign-okhttp.version>13.2.1</feign-okhttp.version>
         <redisson.version>3.24.1</redisson.version>
         <caffeine.version>3.1.8</caffeine.version>
@@ -92,12 +100,6 @@
                     <version>${alibaba-spring-cloud.version}</version>
                 </dependency> -->
                 <!-- nacos end -->
-
-                <!-- <dependency>
-                    <groupId>org.redisson</groupId>
-                    <artifactId>redisson-spring-boot-starter</artifactId>
-                    <version>${redisson.version}</version>
-                </dependency> -->
             </dependencies>
 
         </profile>

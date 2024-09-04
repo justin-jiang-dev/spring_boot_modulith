@@ -26,8 +26,16 @@ public class OrderRedisController {
     private final OrderExecutor orderExecutor;
 
     @Operation(description = "创建订单")
-    @PostMapping("create")
-    public BasicResultDTO<OrderDTO> create(@Valid @RequestBody OrderCreationCommand command) {
+    @PostMapping("save")
+    public BasicResultDTO<OrderDTO> save(@Valid @RequestBody OrderCreationCommand command) {
+        // @Valid作用：指定对 Java 对象（query）进行约束验证
+        // @RequestBody 的作用： 将请求中 Body 内容绑定（反序列化）到 Java 对象（query）
+        return orderExecutor.save(command);
+    }
+
+    @Operation(description = "根据 id 获取订单")
+    @PostMapping("getById")
+    public BasicResultDTO<OrderDTO> getById(@Valid @RequestBody OrderCreationCommand command) {
         // @Valid作用：指定对 Java 对象（query）进行约束验证
         // @RequestBody 的作用： 将请求中 Body 内容绑定（反序列化）到 Java 对象（query）
         return orderExecutor.save(command);
