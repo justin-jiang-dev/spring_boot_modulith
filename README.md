@@ -126,7 +126,7 @@ CLIENT_SDK_VERSION=1.0.0;./mvnw deploy:deploy-file -DgroupId=com.nuoson.modulith
 cd target/generated-sources/archetype 
 ../../../mvnw install
 # 使用 archetype
-mvn archetype:generate -DarchetypeGroupId=tech.nuoson -DarchetypeArtifactId=archetype_demo -DgroupId=com.nuoson.app -DartifactId=new-app -DinteractiveMode=false
+mvn archetype:generate -DarchetypeGroupId=tech.nuoson -DarchetypeArtifactId=modulith-archetype -DgroupId=com.nuoson.app -DartifactId=new-app -DinteractiveMode=false
 
 ```
 
