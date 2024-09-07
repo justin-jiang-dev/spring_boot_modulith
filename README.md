@@ -119,16 +119,6 @@ java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 -java
 # 部署 Client SDK（生成 jar 包，并上传至指定仓库），注： CLIENT_SDK_VERSION 为版本号
 CLIENT_SDK_VERSION=1.0.0;./mvnw deploy:deploy-file -DgroupId=com.nuoson.modulith -DartifactId=modulith-client -Dpackaging=jar -DrepositoryId=<依赖库Id> -Durl=<依赖库Url> -DgeneratePom=false -Dversion=${CLIENT_SDK_VERSION}-SNAPSHOT -Dfile=target/client/modulith-${CLIENT_SDK_VERSION}-client.jar
 ```
-# 生成&使用脚手架模板
-```bash
-# 生成并本地安装 archetype
-./mvnw archetype:create-from-project -Darchetype.properties=./archetype.properties
-cd target/generated-sources/archetype 
-../../../mvnw install
-# 使用 archetype
-mvn archetype:generate -DarchetypeGroupId=tech.nuoson -DarchetypeArtifactId=modulith-archetype -DgroupId=com.nuoson.app -DartifactId=new-app -DinteractiveMode=false
-
-```
 
 *** 开发环境配置参见文件 [README_ENV.md](./README_ENV.md) ***    
 *** 常见需求场景解决方案参见文件 [README_SOLUTION.md](./README_SOLUTION.md) ***

@@ -13,10 +13,10 @@
         <relativePath />
     </parent>
     <groupId>com.nuoson</groupId>
-    <artifactId>modulith</artifactId>
+    <artifactId>cola-modulith</artifactId>
     <version>1.0.0</version>
-    <name>modulith</name>
-    <description>modulith</description>
+    <name>cola-modulith</name>
+    <description>cola-modulith</description>
     <!-- 
         属性定义
      -->
@@ -107,7 +107,7 @@
 
     <dependencies>
         <!--
-            #############  spring boot 相关依赖  #############
+            +++++++++++++  spring boot 相关依赖  +++++++++++++
         -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -145,7 +145,7 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
         <!-- 
-           ############# spring cloud 相关依赖 #############
+           +++++++++++++ spring cloud 相关依赖 +++++++++++++
         -->
         <!-- 支持 bootstrap.yml -->
         <!-- <dependency>
@@ -158,7 +158,7 @@
         </dependency> -->
 
         <!-- 
-           ############# spring modulith 相关依赖 #############
+           +++++++++++++ spring modulith 相关依赖 +++++++++++++
          -->
         <dependency>
             <groupId>org.springframework.modulith</groupId>
@@ -166,7 +166,7 @@
         </dependency>
 
         <!-- 
-          #############  数据库和缓存等存储相关依赖 #############
+          +++++++++++++  数据库和缓存等存储相关依赖 +++++++++++++
         -->
         <!-- 
             https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-spring-boot3-starter/3.5.7
@@ -209,7 +209,7 @@
             <scope>runtime</scope>
         </dependency>
         <!-- 
-            ############# 日志 Pattern 配置 #############
+            +++++++++++++ 日志 Pattern 配置 +++++++++++++
         -->
         <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-toolkit-logback-1.x -->
         <dependency>
@@ -220,7 +220,7 @@
 
 
         <!-- 
-              #############  其它依赖 #############
+              +++++++++++++  其它依赖 +++++++++++++
          -->
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
@@ -246,7 +246,7 @@
 
 
         <!-- 
-           ############# 开发工具类依赖 #############
+           +++++++++++++ 开发工具类依赖 +++++++++++++
         -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -265,10 +265,10 @@
         </dependency>
 
         <!-- 
-           ############# 测试依赖 #############
+           +++++++++++++ 测试依赖 +++++++++++++
         -->
         <!-- 
-          #############  mybatis plus generator 相关 ############# 
+          +++++++++++++  mybatis plus generator 相关 +++++++++++++ 
         -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -354,7 +354,7 @@
                     <include>**/*.yml</include>
                     <include>**/logback-spring.xml</include>
                     <include>db/*.sql</include>
-                    <include>additional-spring-configuration-metadata.json</include>
+                    <include>__gitignore__</include>
                 </includes>
                 <!-- 启用过滤器，过滤器会解析需要过滤的的资源文件，将其中的变量替换成真实的值 -->
                 <filtering>true</filtering>
