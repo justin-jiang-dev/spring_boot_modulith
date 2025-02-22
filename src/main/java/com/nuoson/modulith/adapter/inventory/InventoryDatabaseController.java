@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nuoson.modulith.app.foundationmodel.BasicResultDTO;
 import com.nuoson.modulith.app.inventory.InventoryDTO;
 import com.nuoson.modulith.app.inventory.InventoryExecutor;
-import com.nuoson.modulith.app.inventoryrequestparam.InventoryByCountQuery;
-import com.nuoson.modulith.app.inventoryrequestparam.InventoryByIdQuery;
+import com.nuoson.modulith.app.inventoryrequest.InventoryByCountRequest;
+import com.nuoson.modulith.app.inventoryrequest.InventoryByIdRequest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -30,7 +30,7 @@ public class InventoryDatabaseController {
 
     @Operation(description = "根据库存产品Id, 查询库存信息")
     @PostMapping("getById")
-    public BasicResultDTO<InventoryDTO> getById(@Valid @RequestBody InventoryByIdQuery query) {
+    public BasicResultDTO<InventoryDTO> getById(@Valid @RequestBody InventoryByIdRequest query) {
         // @Valid作用：指定对 Java 对象（query）进行约束验证
         // @RequestBody 的作用： 将请求中 Body 内容绑定（反序列化）到 Java 对象（query）
         return inventoryExecutor.getById(query);
@@ -40,7 +40,7 @@ public class InventoryDatabaseController {
     @GetMapping("getByIdWithParam")
     public BasicResultDTO<InventoryDTO> getByIdWithParam(
             @RequestParam(value = "id", required = true) @NotBlank String id) {
-        InventoryByIdQuery query = new InventoryByIdQuery();
+        InventoryByIdRequest query = new InventoryByIdRequest();
         query.setProductId(id);
         return inventoryExecutor.getById(query);
     }
@@ -60,7 +60,7 @@ public class InventoryDatabaseController {
     @PostMapping("queryByCount")
     public BasicResultDTO<List<InventoryDTO>> queryByCount(
             // Valid 注解会被SpringBoot框架解析，并触发约束验证
-            @Valid @RequestBody InventoryByCountQuery query) {
+            @Valid @RequestBody InventoryByCountRequest query) {
         return inventoryExecutor.queryByCount(query);
     }
 

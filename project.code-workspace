@@ -4,130 +4,26 @@
 			"path": "."
 		}
 	],
-	"launch": {
-		"version": "0.2.0",
-		"configurations": [
-			{
-				"type": "java",
-				"name": "Attach",
-				"request": "attach",
-				"hostName": "localhost",
-				"port": "5005"
-			}
-		],
-		"compounds": []
-	},
 	"settings": {
-		// 配置 p3c 的配置文件名称
-		"vscodeP3C.rulesets": [
-			"custom-p3c-ruleset.xml"
-		],
-		// 配置 p3c 的缓存
-		"vscodeP3C.enableCache": true,
-		// 配置代码格式，包括缩进，空格等
-		"java.format.settings.url": "eclipse-formatter-V13.xml",
-		// 拼写单词白名单
-		"cSpell.words": [
-			"aliyun",
-			"aliyunmaven",
-			"appendonly",
-			"baomidou",
-			"Batis",
-			"businessdemo",
-			"Cacheable",
-			"classpath",
-			"Darchetype",
-			"Dartifact",
-			"datasource",
-			"Dfile",
-			"Dgenerate",
-			"Dgroup",
-			"Dinteractive",
-			"Dpackaging",
-			"Drepository",
-			"Dskywalking",
-			"Dspring",
-			"Dtest",
-			"Durl",
-			"Dversion",
-			"endregion",
-			"extendmapper",
-			"extendservice",
-			"foundationmodel",
-			"Freemarker",
-			"ibatis",
-			"inventoryentity",
-			"inventorygateway",
-			"inventorymodel",
-			"inventoryrequestparam",
-			"javaagent",
-			"javax",
-			"jdbc",
-			"justinjiangcode",
-			"mapstruct",
-			"modulith",
-			"Modulithic",
-			"mvnw",
-			"Mybatis",
-			"nuoson",
-			"Ollama",
-			"orderentity",
-			"ordergateway",
-			"ordermodel",
-			"rectcircle",
-			"requestparam",
-			"ruleset",
-			"rulesets",
-			"Servlet",
-			"skywalking",
-			"springframework",
-			"testdb",
-			"Tiku",
-			"vscjava",
-			"Xdebug",
-			"Xrunjdwp",
-			"XXXDTO",
-			"YYYZZZ"
-		],
-		"java.configuration.updateBuildConfiguration": "automatic",
-		// 静态的空指针检测
 		"java.compile.nullAnalysis.mode": "automatic",
-		// import 语句排序规则
-		"java.completion.importOrder": [
-			"#",
-			"java",
-			"javax",
-			"org",
-			"com",
-			""
-		],
-		"java.project.sourcePaths": [
-			"src"
-		],
-		// 代码自动格式化配置 -- start
-		"editor.formatOnSave": true,
-		"editor.codeActionsOnSave": {
-			"source.organizeImports": "always"
-		},
-		"files.autoSave": "onFocusChange",
-		// 代码自动格式化配置 -- end
-		"java.import.exclusions": [
-			"**/target/**",
-			"**/node_modules/**",
-			"**/.metadata/**",
-			"**/archetype-resources/**",
-			"**/META-INF/maven/**"
-		],
-		"java.project.resourceFilters": [
-			"node_modules",
-			".git",
-			"target"
-		],
-		"[java]": {
-			"editor.insertSpaces": true,
-			"editor.detectIndentation": false,
-			"editor.tabSize": 4,
-			"editor.defaultFormatter": "redhat.java"
-		}
+		"cSpell.words": [
+			"Hystrix",
+			"jcmd",
+			"malloc",
+			"mapstruct",
+			"mbeanregistry",
+			"Metaspace",
+			"mmap",
+			"modulith",
+			"mybatis",
+			"nacos",
+			"nuoson",
+			"okhttp",
+			"openfeign",
+			"redisson",
+			"Safepoint",
+			"springframework",
+			"youdao"
+		]
 	}
 }

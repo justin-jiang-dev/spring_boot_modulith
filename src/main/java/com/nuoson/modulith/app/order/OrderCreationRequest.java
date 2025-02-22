@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class OrderCreationCommand {
+public class OrderCreationRequest {
     @Schema(description = "产品id", requiredMode = RequiredMode.REQUIRED)
     @NotBlank(message = "商品编码（字段）不能为 BLANK")
     private String productId;

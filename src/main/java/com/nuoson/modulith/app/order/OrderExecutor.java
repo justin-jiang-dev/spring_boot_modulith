@@ -33,7 +33,7 @@ public class OrderExecutor {
      * @param command
      * @return
      */
-    public BasicResultDTO<OrderDTO> save(OrderCreationCommand command) {
+    public BasicResultDTO<OrderDTO> save(OrderCreationRequest command) {
         OrderEntity entity = new OrderEntity();
         entity.setCount(command.getCount());
         entity.setProductId(command.getProductId());

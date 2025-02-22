@@ -1,6 +1,6 @@
-package com.nuoson.modulith.app.inventoryrequestparam;
+package com.nuoson.modulith.app.inventoryrequest;
 
-import com.nuoson.modulith.app.internal.BaseRequestParam;
+import com.nuoson.modulith.app.internal.BaseRequest;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class InventoryByCountQuery extends BaseRequestParam {
+public class InventoryByCountRequest extends BaseRequest {
     @Schema(description = "库存产品数量最少值", requiredMode = RequiredMode.REQUIRED)
     @Positive(message = "值必须是正整数，当前值为：${validatedValue}")
     private Long from;

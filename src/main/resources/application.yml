@@ -3,6 +3,14 @@ logging:
     root: info
 server:
   port: 8686
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+      max-queue-capacity: 100
+    accept-count: 100
+    max-connections: 2000
+     
 spring:
   application:
     name: spring_boot_modulith
@@ -59,3 +67,4 @@ spring:
   h2:
     console:
       enabled: true
+

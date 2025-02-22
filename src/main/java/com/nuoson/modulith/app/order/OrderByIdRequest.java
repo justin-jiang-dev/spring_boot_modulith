@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class OrderByIdQuery {
+public class OrderByIdRequest {
     @Schema(description = "订单 id", requiredMode = RequiredMode.REQUIRED)
     @NotBlank(message = "订单 id 不能为 BLANK")
     private String orderId;

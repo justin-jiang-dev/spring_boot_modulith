@@ -4,4 +4,4 @@
  * xxxCommand 表示用于编辑 api
  */
 @org.springframework.modulith.NamedInterface("inventoryrequestparam")
-package com.nuoson.modulith.app.inventoryrequestparam;
+package com.nuoson.modulith.app.inventoryrequest;

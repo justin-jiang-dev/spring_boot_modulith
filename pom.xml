@@ -13,10 +13,10 @@
         <relativePath />
     </parent>
     <groupId>com.nuoson</groupId>
-    <artifactId>cola-modulith</artifactId>
+    <artifactId>spring-boot-modulith</artifactId>
     <version>1.0.0</version>
-    <name>cola-modulith</name>
-    <description>cola-modulith</description>
+    <name>spring-boot-modulith</name>
+    <description>spring-boot-modulith</description>
     <!-- 
         属性定义
      -->

@@ -7,8 +7,8 @@ import org.springframework.validation.annotation.Validated;
 
 import com.nuoson.modulith.app.foundationmodel.BasicResultDTO;
 import com.nuoson.modulith.app.internal.ExecutorArgsValidationGroup;
-import com.nuoson.modulith.app.inventoryrequestparam.InventoryByCountQuery;
-import com.nuoson.modulith.app.inventoryrequestparam.InventoryByIdQuery;
+import com.nuoson.modulith.app.inventoryrequest.InventoryByCountRequest;
+import com.nuoson.modulith.app.inventoryrequest.InventoryByIdRequest;
 import com.nuoson.modulith.domain.inventory.InventoryRepositoryGateway;
 
 import jakarta.validation.Valid;
@@ -40,7 +40,7 @@ public class InventoryExecutor {
      * @param query
      * @return
      */
-    public BasicResultDTO<InventoryDTO> getById(InventoryByIdQuery query) {
+    public BasicResultDTO<InventoryDTO> getById(InventoryByIdRequest query) {
 
         return BasicResultDTO.success(inventoryDTOMapping.fromEntity(
                 inventoryRepositoryGateway.getById(query.getProductId())));
@@ -53,7 +53,7 @@ public class InventoryExecutor {
      * @return
      */
     public BasicResultDTO<List<InventoryDTO>> queryByCount(
-            @Valid InventoryByCountQuery query) {
+            @Valid InventoryByCountRequest query) {
         log.info("queryByCount from: {} to: {}", query.getFrom(), query.getTo());
         return BasicResultDTO.success(inventoryDTOMapping.fromEntity(
                 inventoryRepositoryGateway.queryByCount(query.getFrom(), query.getTo())));
